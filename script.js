@@ -1,39 +1,44 @@
 function calculatePrice() {
-    let base = 100;
+    let basePrice = 100;
   
-    let education = parseFloat(document.getElementById("education").value);
-    let networth = parseFloat(document.getElementById("networth").value);
-    let caste = parseFloat(document.getElementById("caste").value);
+    const education = parseFloat(document.getElementById('education').value);
+    const income = parseFloat(document.getElementById('income').value);
+    const appearance = parseFloat(document.getElementById('appearance').value);
   
-    let age = 1;
-    document.getElementsByName("age").forEach(r => {
-      if (r.checked) age = parseFloat(r.value);
-    });
+    let ageRadios = document.getElementsByName('age');
+    let ageFactor = 1;
+    for (let radio of ageRadios) {
+      if (radio.checked) {
+        ageFactor = parseFloat(radio.value);
+        break;
+      }
+    }
   
-    let skillBonus = 0;
-    document.querySelectorAll(".skill").forEach(chk => {
-      if (chk.checked) skillBonus += parseFloat(chk.value);
-    });
+    let traitBonus = 0;
+    let traits = document.getElementsByClassName('trait');
+    for (let trait of traits) {
+      if (trait.checked) traitBonus += parseFloat(trait.value);
+    }
   
-    let repFactor = 1;
-    document.querySelectorAll(".rep").forEach(chk => {
-      if (chk.checked) repFactor *= parseFloat(chk.value);
-    });
+    let flagFactor = 1;
+    let flags = document.getElementsByClassName('flag');
+    for (let flag of flags) {
+      if (flag.checked) flagFactor *= parseFloat(flag.value);
+    }
   
-    let repDeduct = 0;
-    document.querySelectorAll(".repDeduct").forEach(chk => {
-      if (chk.checked) repDeduct += parseFloat(chk.value);
-    });
+    let flagPenalty = 0;
+    let deductFlags = document.getElementsByClassName('flagDeduct');
+    for (let flag of deductFlags) {
+      if (flag.checked) flagPenalty += parseFloat(flag.value);
+    }
   
-    let total = base * education * networth * age * repFactor;
-    total += caste + skillBonus + repDeduct;
+    let total = basePrice * education * income * ageFactor * flagFactor;
+    total += appearance + traitBonus + flagPenalty;
   
-    // DOM взаимодействия
-    const result = document.getElementById("result");
-    result.innerText = `Final Price: $${total.toFixed(2)}`;
-    result.classList.add("highlight");
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerText = `Estimated Groom Price: $${total.toFixed(2)}`;
+    resultDiv.classList.add('highlight');
   
-    // Изменение кнопки
-    document.querySelector("button").innerText = "Recalculate";
+    document.querySelector('button').innerText = "Recalculate";
   }
   

@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bride/Groom Price Calculator</title>
+  <title>Groom Price Calculator</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bride/Groom Price Calculator</h1>
+  <h1>Groom Price Calculator</h1>
 
-  <label>Education:</label>
+  <label for="education">Education:</label>
   <select id="education">
-    <option value="1.5">Undergraduate</option>
-    <option value="1.2">College</option>
-    <option value="1.05">High School</option>
-    <option value="0.9">Middle School</option>
+    <option value="1.5">Undergraduate degree</option>
+    <option value="1.2">College degree</option>
+    <option value="1.05">High school degree</option>
+    <option value="0.9">Middle school degree</option>
   </select>
 
-  <label>Family Net Worth:</label>
+  <label for="networth">Family Net Worth:</label>
   <select id="networth">
     <option value="2">More than $10,000</option>
     <option value="1.5">$5,000 - $10,000</option>
     <option value="1.2">Less than $5,000</option>
   </select>
 
-  <label>Caste:</label>
+  <label for="caste">Caste:</label>
   <select id="caste">
     <option value="100">Brahmin</option>
     <option value="50">Kshatriya</option>
@@ -34,23 +34,22 @@
   </select>
 
   <label>Skills:</label>
-  <input type="checkbox" value="10" class="skill">Instrument
-  <input type="checkbox" value="20" class="skill">Cooking
-  <input type="checkbox" value="15" class="skill">Easygoing
-  <input type="checkbox" value="10" class="skill">Singing
+  <input type="checkbox" value="10" class="skill"> Plays instrument
+  <input type="checkbox" value="20" class="skill"> Good cook
+  <input type="checkbox" value="15" class="skill"> Easygoing
+  <input type="checkbox" value="10" class="skill"> Sings well
 
   <label>Age:</label>
-  <input type="radio" name="age" value="1.5">18-23
-  <input type="radio" name="age" value="1.2">24-27
-  <input type="radio" name="age" value="0.95">28+
+  <input type="radio" name="age" value="1.5"> 18-23
+  <input type="radio" name="age" value="1.2"> 24-27
+  <input type="radio" name="age" value="0.95"> 28+
 
   <label>Reputation:</label>
-  <input type="checkbox" value="0.85" class="rep">Gossips about parents
-  <input type="checkbox" value="0.9" class="rep">Gossips about character
-  <input type="checkbox" value="-20" class="repDeduct">General gossips
+  <input type="checkbox" value="0.85" class="rep"> Gossips about parents
+  <input type="checkbox" value="0.9" class="rep"> Gossips about character
+  <input type="checkbox" value="-20" class="repDeduct"> General gossips
 
-  <br><br>
-  <button onclick="calculatePrice()">Calculate Price</button>
+  <button onclick="calculatePrice()">Calculate Final Price</button>
 
   <div id="result"></div>
 
